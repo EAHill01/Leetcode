@@ -1,3 +1,15 @@
+#worked, less memory efficient but 100ms faster
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        dupe = {}
+        for x in nums:
+            if x in dupe:
+                return True
+            else:
+                dupe[x] = True #x is key
+        return False
+
+
 #worked, very memory efficient but slow
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
@@ -9,8 +21,8 @@ class Solution:
             dex+=1
         return False
         
-#works, but exceeded time constraints
-"""class Solution:
+#worked, but exceeded time constraints
+class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         dex = 1
         for x in nums:
@@ -18,4 +30,4 @@ class Solution:
                 return True
             dex+=1
         return False
-        """
+        
