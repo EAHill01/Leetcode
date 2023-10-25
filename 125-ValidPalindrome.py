@@ -1,4 +1,17 @@
-#import re
+import re
+
+#works, alternative with replacing _, ~72% run, ~24% memory
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        string = (re.sub(r'\W+', '', s)).lower()
+        string = string.replace('_', '')
+        if len(string)==0 or len(string)==1:
+            return True
+        for a, b in enumerate(string):
+            if b != string[len(string)-a-1]:
+                return False
+            if len(string)/2 <= a:
+                return True #means they've crossed over halfway
 
 #works, ~63% run, ~30% memory
 class Solution:
